@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedidos · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/pedidos.js"></script>
+</head>
+<body data-pagina="pedidos">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1>Pedidos</h1>
+      <a class="botao grande" href="/admin/pedido-form.html">➕ Novo pedido</a>
+    </div>
+
+    <form id="filtros" class="cartao filtros" role="search">
+      <div>
+        <span class="rotulo">Situação</span>
+        <div class="segmentado" id="filtro-status">
+          <button type="button" data-valor="PENDENTE" aria-pressed="true">Pendentes</button>
+          <button type="button" data-valor="CONCLUIDO" aria-pressed="false">Concluídos</button>
+          <button type="button" data-valor="CANCELADO" aria-pressed="false">Cancelados</button>
+          <button type="button" data-valor="" aria-pressed="false">Todos</button>
+        </div>
+      </div>
+      <div>
+        <span class="rotulo">Recebimento</span>
+        <div class="segmentado" id="filtro-tipo">
+          <button type="button" data-valor="" aria-pressed="true">Todos</button>
+          <button type="button" data-valor="RETIRADA" aria-pressed="false">Retirada</button>
+          <button type="button" data-valor="ENTREGA" aria-pressed="false">Entrega</button>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="filtro-data">Dia da entrega/retirada</label>
+        <input id="filtro-data" type="date">
+      </div>
+      <div class="segmentado">
+        <button type="button" id="botao-hoje">Hoje</button>
+        <button type="button" id="botao-amanha">Amanhã</button>
+        <button type="button" id="botao-qualquer-dia">Qualquer dia</button>
+      </div>
+      <div class="campo">
+        <label for="filtro-busca">Procurar (nome do cliente ou data)</label>
+        <input id="filtro-busca" type="search" placeholder="Ex.: Maria ou 15/11/2026">
+      </div>
+      <button type="submit" class="botao">Procurar</button>
+    </form>
+
+    <p id="contagem" class="suave" aria-live="polite"></p>
+    <div id="lista"><p class="carregando">Carregando…</p></div>
+  </main>
+
+  <dialog id="dialogo-pagamento" aria-labelledby="t-pagamento">
+    <form method="dialog" id="form-pagamento">
+      <h2 id="t-pagamento">Registrar pagamento</h2>
+      <p id="pagamento-resumo"></p>
+      <div class="campo">
+        <span class="rotulo">Como foi pago?</span>
+        <div class="opcoes">
+          <label class="opcao"><input type="radio" name="tipo" value="PIX" checked><span>Pix</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="CARTAO"><span>Cartão</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="DINHEIRO"><span>Dinheiro</span></label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="pagamento-data">Data do pagamento</label>
+        <input id="pagamento-data" name="data" type="date" required>
+      </div>
+      <p class="suave">O valor entra sozinho no Financeiro.</p>
+      <div class="acoes">
+        <button type="submit" class="botao verde grande" value="confirmar">Confirmar pagamento</button>
+        <button type="submit" class="botao secundario grande" value="cancelar" formnovalidate>Voltar</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

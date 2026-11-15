@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatórios · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/relatorios.js"></script>
+</head>
+<body data-pagina="relatorios">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1>Relatórios</h1>
+      <button type="button" class="botao secundario" id="botao-imprimir">🖨 Imprimir</button>
+    </div>
+
+    <div class="segmentado abas" id="abas" role="tablist">
+      <button type="button" data-valor="pedidos" aria-pressed="true">📋 Pedidos</button>
+      <button type="button" data-valor="mais-vendidos" aria-pressed="false">🏆 Mais vendidos</button>
+      <button type="button" data-valor="financeiro" aria-pressed="false">💰 Financeiro</button>
+    </div>
+
+    <div class="cartao filtros">
+      <div>
+        <span class="rotulo">Período</span>
+        <div class="segmentado" id="filtro-periodo">
+          <button type="button" data-valor="DIA" aria-pressed="false">Dia</button>
+          <button type="button" data-valor="SEMANA" aria-pressed="false">Semana</button>
+          <button type="button" data-valor="MES" aria-pressed="true">Mês</button>
+          <button type="button" data-valor="ANO" aria-pressed="false">Ano</button>
+          <button type="button" data-valor="TODOS" aria-pressed="false">Tudo</button>
+        </div>
+      </div>
+      <div class="campo"><label for="referencia">Data de referência</label><input id="referencia" type="date"></div>
+    </div>
+
+    <h2 id="titulo-relatorio"></h2>
+    <div id="relatorio"><p class="carregando">Carregando…</p></div>
+  </main>
+</body>
+</html>

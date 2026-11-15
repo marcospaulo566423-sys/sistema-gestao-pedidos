@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Início · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/painel.js"></script>
+</head>
+<body data-pagina="inicio">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1 id="titulo">Bom dia!</h1>
+      <a class="botao grande" href="/admin/pedido-form.html">➕ Novo pedido</a>
+    </div>
+
+    <div class="numeros" id="numeros"></div>
+
+    <div class="colunas">
+      <section class="cartao" aria-labelledby="t-lembretes">
+        <h2 id="t-lembretes">🔔 Pedidos de amanhã</h2>
+        <div id="lembretes" class="lista"><p class="carregando">Carregando…</p></div>
+      </section>
+      <section class="cartao" aria-labelledby="t-producao">
+        <h2 id="t-producao">🥖 Produzir hoje</h2>
+        <div id="producao"><p class="carregando">Carregando…</p></div>
+        <div class="acoes"><a class="botao secundario" href="/admin/producao.html">Ver lista de produção</a></div>
+      </section>
+      <section class="cartao" aria-labelledby="t-comprar">
+        <h2 id="t-comprar">🛒 Precisa comprar</h2>
+        <div id="comprar"><p class="carregando">Carregando…</p></div>
+        <div class="acoes"><a class="botao secundario" href="/admin/estoque.html">Ver estoque</a></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

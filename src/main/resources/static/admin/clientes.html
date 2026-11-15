@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clientes · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/clientes.js"></script>
+</head>
+<body data-pagina="clientes">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1>Clientes</h1>
+      <button type="button" class="botao grande" id="botao-novo">+ Novo cliente</button>
+    </div>
+
+    <form id="form-cliente" class="cartao form-admin" hidden novalidate>
+      <h2 id="titulo-form">Novo cliente</h2>
+      <div class="grade-campos">
+        <div class="campo"><label for="nome">Nome *</label><input id="nome" name="nome" type="text" maxlength="100" required></div>
+        <div class="campo"><label for="telefone">Telefone / WhatsApp *</label><input id="telefone" name="telefone" type="tel" maxlength="20" required></div>
+      </div>
+      <div class="campo"><label for="endereco">Endereço (opcional)</label><input id="endereco" name="endereco" type="text" maxlength="255"></div>
+      <label class="marcar"><input id="frequente" name="clienteFrequente" type="checkbox"> ★ Cliente frequente</label>
+      <div class="acoes">
+        <button type="submit" class="botao verde" id="botao-salvar">Salvar</button>
+        <button type="button" class="botao secundario" id="botao-cancelar">Cancelar</button>
+      </div>
+    </form>
+
+    <div class="cartao filtros">
+      <div class="campo"><label for="busca">Procurar</label><input id="busca" type="search" placeholder="Nome ou telefone"></div>
+    </div>
+    <div id="lista" class="lista"><p class="carregando">Carregando…</p></div>
+  </main>
+</body>
+</html>

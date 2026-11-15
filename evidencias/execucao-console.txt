@@ -1,0 +1,54 @@
+====================================================
+       DELICIA CASEIRA DA ELAINE - DEMONSTRAÇÃO
+====================================================
+[OK] Login da administradora com credenciais corretas
+[OK] Login rejeita senha incorreta
+[OK] Cadastro de produto bolo
+[OK] Cadastro de produto pão de queijo
+[OK] Não permite produto duplicado
+[OK] Cadastro de estoque do bolo
+[OK] Cadastro de estoque do pão de queijo
+[OK] Consulta de estoque
+[OK] Estoque acima do mínimo não gera alerta
+[OK] Subtotal do bolo
+[OK] Total do pedido
+[OK] Cadastro de pedido e baixa automática do estoque
+[OK] Estoque do bolo atualizado após venda
+[OK] Bloqueia pedido quando a soma dos itens supera o estoque
+[OK] Registro do pagamento
+[OK] Atualização de status do pedido
+[OK] Pesquisa de pedido por nome do cliente
+[OK] Filtro de produtos por texto descritivo
+[OK] Lista de produtos mais vendidos
+[OK] Registro de entrada financeira
+[OK] Histórico financeiro contém o registro
+
+========== RELATÓRIO DE PEDIDOS ==========
+Pedido #1001 | Maria Oliveira | 2026-11-03 14:30 | PRONTO | R$ 60,00 | Itens: 2
+Total em pedidos: R$ 60,00
+
+========== RELATÓRIO FINANCEIRO (30 dias) ==========
+#1 | 2026-11-03 | R$ 60,00 | Recebimento do pedido #1001
+Total de entradas: R$ 60,00
+Observação: o UML modela somente entradas; despesas e lucro não são calculados.
+
+========== LEMBRETES ==========
+Estoque dentro do mínimo configurado.
+[OK] Status inválido é rejeitado
+[OK] Pedido sem itens não é cadastrado
+[OK] Exclusão de pedido
+[OK] Exclusão devolve os itens ao estoque
+[OK] Pedido excluído não aparece na pesquisa
+[OK] Cadastro do pedido para teste de edição
+[OK] Edição do pedido
+[OK] Edição recalcula a baixa do estoque
+[OK] Exclusão do pedido editado
+[OK] Exclusão do pedido editado restaura o estoque
+[OK] Alerta de compra quando estoque atinge o mínimo
+
+========== LEMBRETES ==========
+REPOR: Bolo de cenoura: 2.0 unidade (mínimo: 2.0)
+
+====================================================
+TESTES CONCLUÍDOS: 32/32 aprovados
+====================================================

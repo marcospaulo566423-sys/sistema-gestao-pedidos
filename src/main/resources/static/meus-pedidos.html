@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meus Pedidos · Delícia Caseira da Elaine</title>
+  <meta name="description" content="Acompanhe a situação do seu pedido de pães caseiros com o código e o telefone.">
+  <meta name="theme-color" content="#faf6f0">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Plus+Jakarta+Sans:wght@400..800&display=swap">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="module" src="/js/site/meus-pedidos.js"></script>
+</head>
+<body class="site">
+  <header class="topo-site">
+    <div class="faixa">
+      <a class="marca" href="/">
+        <img src="/img/logo.svg" alt="" width="44" height="44">
+        <span><strong>Delícia Caseira</strong><small>da Elaine</small></span>
+      </a>
+      <nav class="menu-site" aria-label="Menu principal">
+        <a href="/">Início</a>
+        <a href="/#cardapio">Cardápio</a>
+        <a href="/meus-pedidos.html" aria-current="page">Meus Pedidos</a>
+        <a class="botao" href="/pedido.html">Fazer Pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina pagina-form">
+    <h1>Meus Pedidos</h1>
+    <p class="suave">Digite o código que você recebeu ao fazer o pedido e o mesmo telefone que informou.</p>
+
+    <div class="layout-consulta">
+      <form id="form-consulta" class="cartao consulta" novalidate>
+        <div class="campo">
+          <label for="codigo"><span class="num" aria-hidden="true">1</span>Código do pedido</label>
+          <input id="codigo" name="codigo" type="text" maxlength="20" autocomplete="off" autocapitalize="characters" placeholder="Ex.: K7M2Q9XA" required>
+        </div>
+        <div class="campo">
+          <label for="telefone"><span class="num" aria-hidden="true">2</span>Telefone / WhatsApp</label>
+          <input id="telefone" name="telefone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="(31) 99999-0000" required>
+        </div>
+        <button type="submit" class="botao grande bloco" id="botao-consultar">Ver meu pedido</button>
+      </form>
+
+      <div class="coluna-resultado">
+        <section id="resultado" class="secao" aria-live="polite"></section>
+
+        <aside class="guia-status" aria-labelledby="titulo-guia">
+          <h2 id="titulo-guia">O que cada situação quer dizer</h2>
+          <ul>
+            <li><span class="etiqueta PENDENTE">Pendente</span><p>A Elaine recebeu e vai preparar para a data combinada.</p></li>
+            <li><span class="etiqueta CONCLUIDO">Concluído</span><p>O pedido foi entregue ou retirado.</p></li>
+            <li><span class="etiqueta CANCELADO">Cancelado</span><p>O pedido não vai ser feito. Em caso de dúvida, fale com a Elaine.</p></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape-site rodape-curto">
+    <div class="faixa">
+      <div class="rodape-linha">
+        <p>Dúvidas? Fale com a Elaine pelo WhatsApp.</p>
+        <nav aria-label="Rodapé"><a href="/pedido.html">Fazer Pedido</a></nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

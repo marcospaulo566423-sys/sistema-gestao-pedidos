@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delícia Caseira da Elaine · Pães caseiros em Baixa Verde - MG</title>
+  <meta name="description" content="Pães caseiros feitos pela Elaine em Baixa Verde - MG. Faça seu pedido pelo site para retirar ou receber em casa.">
+  <meta name="theme-color" content="#faf6f0">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Plus+Jakarta+Sans:wght@400..800&display=swap">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="module" src="/js/site/inicio.js"></script>
+</head>
+<body class="site">
+  <header class="topo-site">
+    <div class="faixa">
+      <a class="marca" href="/">
+        <img src="/img/logo.svg" alt="" width="44" height="44">
+        <span><strong>Delícia Caseira</strong><small>da Elaine</small></span>
+      </a>
+      <nav class="menu-site" aria-label="Menu principal">
+        <a href="/" aria-current="page">Início</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="/meus-pedidos.html">Meus Pedidos</a>
+        <a class="botao" href="/pedido.html">Fazer Pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina pagina-inicio">
+    <section class="destaque" aria-labelledby="titulo-destaque">
+      <div class="destaque-texto">
+        <h1 id="titulo-destaque">Pão caseiro de fornada, feito sob encomenda em Baixa Verde</h1>
+        <p class="destaque-lead">Escolha os sabores, marque o dia e retire comigo ou receba em casa. Tudo feito à mão, como faço há mais de 3 anos.</p>
+        <div class="acoes">
+          <a class="botao grande" href="/pedido.html">Encomendar fornada</a>
+          <a class="link-seta" href="#cardapio">Ver o cardápio</a>
+        </div>
+        <ul class="fatos" aria-label="Como você recebe e paga">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+            Retirada ou entrega
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></svg>
+            Pix, cartão ou dinheiro
+          </li>
+        </ul>
+      </div>
+      <figure class="destaque-foto foto">
+        <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1200&h=900&q=72"
+             srcset="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&h=600&q=72 800w,
+                     https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1200&h=900&q=72 1200w,
+                     https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1600&h=1200&q=72 1600w"
+             sizes="(max-width: 860px) 100vw, 56vw"
+             alt="Pães dourados recém-saídos do forno, empilhados sobre a bancada"
+             width="1200" height="900" fetchpriority="high">
+        <p class="selo">Feito sob encomenda · Baixa Verde - MG</p>
+      </figure>
+    </section>
+
+    <section class="secao cardapio" id="cardapio" aria-labelledby="titulo-cardapio">
+      <div class="cabeca-secao">
+        <h2 id="titulo-cardapio">O cardápio</h2>
+        <p>Todos os pães são feitos à mão, sob encomenda. Escolha um sabor para começar o pedido.</p>
+      </div>
+      <div class="grade-produtos" id="produtos" aria-live="polite">
+        <p class="carregando">Carregando o cardápio…</p>
+      </div>
+    </section>
+
+    <section class="secao como" aria-labelledby="titulo-como">
+      <figure class="como-foto foto">
+        <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=1000&h=750&q=70"
+             alt="Pão rústico de casca dourada e farinha sobre pano de linho"
+             width="1000" height="750" loading="lazy" decoding="async">
+      </figure>
+      <div class="como-texto">
+        <h2 id="titulo-como">Como funciona o pedido</h2>
+        <ol class="passos">
+          <li><h3>Escolha os pães</h3><p>Marque os sabores e as quantidades.</p></li>
+          <li><h3>Diga quando e como</h3><p>Escolha a data, retirada ou entrega, e a forma de pagamento: Pix, cartão ou dinheiro.</p></li>
+          <li><h3>Acompanhe</h3><p>Você recebe um código. Em “Meus Pedidos” veja a situação com o código e seu telefone.</p></li>
+        </ol>
+        <a class="botao grande" href="/pedido.html">Fazer meu pedido</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape-site">
+    <div class="faixa">
+      <p class="rodape-nome">Delícia Caseira da Elaine</p>
+      <div class="rodape-linha">
+        <p>Baixa Verde - MG. Pães feitos à mão há mais de 3 anos.</p>
+        <nav aria-label="Rodapé">
+          <a href="/meus-pedidos.html">Meus Pedidos</a>
+          <a href="/admin/login.html">Área da Elaine</a>
+        </nav>
+      </div>
+      <p class="creditos">Fotos ilustrativas: Unsplash.</p>
+    </div>
+  </footer>
+</body>
+</html>

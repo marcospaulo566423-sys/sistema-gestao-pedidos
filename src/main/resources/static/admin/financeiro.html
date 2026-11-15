@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Financeiro · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/financeiro.js"></script>
+</head>
+<body data-pagina="financeiro">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1>Financeiro · entradas</h1>
+      <button type="button" class="botao grande" id="botao-nova">+ Entrada avulsa</button>
+    </div>
+    <p class="suave">Os pagamentos registrados nos pedidos entram aqui sozinhos. Use “Entrada avulsa” para outros recebimentos.</p>
+
+    <form id="form-entrada" class="cartao form-admin" hidden novalidate>
+      <h2 id="titulo-form">Nova entrada avulsa</h2>
+      <div class="grade-campos">
+        <div class="campo"><label for="valor">Valor (R$) *</label><input id="valor" name="valor" type="text" inputmode="decimal" placeholder="Ex.: 35,00" required></div>
+        <div class="campo"><label for="data">Data *</label><input id="data" name="data" type="date" required></div>
+      </div>
+      <div class="campo"><label for="descricao">Descrição *</label><input id="descricao" name="descricao" type="text" maxlength="200" placeholder="Ex.: Encomenda para festa" required></div>
+      <p class="suave" id="aviso-automatica" hidden>Esta entrada veio de um pedido: o valor só muda desfazendo o pagamento no pedido.</p>
+      <div class="acoes">
+        <button type="submit" class="botao verde" id="botao-salvar">Salvar</button>
+        <button type="button" class="botao secundario" id="botao-cancelar">Cancelar</button>
+      </div>
+    </form>
+
+    <div class="cartao filtros">
+      <div>
+        <span class="rotulo">Período</span>
+        <div class="segmentado" id="filtro-periodo">
+          <button type="button" data-valor="DIA" aria-pressed="false">Dia</button>
+          <button type="button" data-valor="SEMANA" aria-pressed="false">Semana</button>
+          <button type="button" data-valor="MES" aria-pressed="true">Mês</button>
+          <button type="button" data-valor="ANO" aria-pressed="false">Ano</button>
+          <button type="button" data-valor="TODOS" aria-pressed="false">Tudo</button>
+        </div>
+      </div>
+      <div class="campo"><label for="referencia">Data de referência</label><input id="referencia" type="date"></div>
+    </div>
+
+    <div class="numeros" id="totais"></div>
+    <div id="lista" class="lista"><p class="carregando">Carregando…</p></div>
+  </main>
+</body>
+</html>

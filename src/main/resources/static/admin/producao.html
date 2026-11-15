@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produção · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/producao.js"></script>
+</head>
+<body data-pagina="producao">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1 id="titulo">Lista de produção</h1>
+      <button type="button" class="botao secundario nao-imprimir" id="botao-imprimir">🖨 Imprimir</button>
+    </div>
+    <div class="cartao filtros">
+      <div class="campo">
+        <label for="data">Dia</label>
+        <input id="data" type="date">
+      </div>
+      <div class="segmentado">
+        <button type="button" id="botao-hoje">Hoje</button>
+        <button type="button" id="botao-amanha">Amanhã</button>
+      </div>
+    </div>
+    <p class="suave">Feita automaticamente com os pedidos cadastrados (pendentes e concluídos) para entrega ou retirada no dia escolhido.</p>
+    <div class="colunas">
+      <section class="cartao" aria-labelledby="t-quanto">
+        <h2 id="t-quanto">Quanto produzir</h2>
+        <div id="quantidades"><p class="carregando">Carregando…</p></div>
+      </section>
+      <section aria-labelledby="t-pedidos">
+        <h2 id="t-pedidos">Pedidos do dia</h2>
+        <div id="pedidos" class="lista"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

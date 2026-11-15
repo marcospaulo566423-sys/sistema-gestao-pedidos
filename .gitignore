@@ -1,0 +1,31 @@
+# Build
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Segredos
+.env
+
+# Dados locais (fotos enviadas, backups, banco H2 do perfil "local")
+dados/
+dados-locais/
+backups/
+*.mv.db
+*.trace.db
+
+# Logs
+logs/
+*.log
+
+# IDEs
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.factorypath
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+.vscode/

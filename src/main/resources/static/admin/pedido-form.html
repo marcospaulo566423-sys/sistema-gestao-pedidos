@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedido · Painel da Elaine</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin/pedido-form.js"></script>
+</head>
+<body data-pagina="novo">
+  <header id="topo"></header>
+  <main class="conteudo">
+    <div class="cabecalho-pagina">
+      <h1 id="titulo">Novo pedido</h1>
+      <a class="botao secundario" href="/admin/pedidos.html">← Voltar para pedidos</a>
+    </div>
+
+    <form id="form-pedido" class="cartao form-admin" novalidate>
+      <fieldset>
+        <legend>1. Cliente</legend>
+        <div class="grade-campos">
+          <div class="campo">
+            <label for="busca-cliente">Procurar cliente</label>
+            <input id="busca-cliente" type="search" placeholder="Nome ou telefone">
+          </div>
+          <div class="campo">
+            <label for="cliente">Cliente *</label>
+            <select id="cliente" name="clienteId" required></select>
+          </div>
+        </div>
+        <button type="button" class="botao secundario" id="botao-novo-cliente">+ Cliente novo</button>
+        <div id="novo-cliente" class="cartao" hidden>
+          <h3>Cadastrar cliente</h3>
+          <div class="grade-campos">
+            <div class="campo"><label for="nc-nome">Nome *</label><input id="nc-nome" type="text" maxlength="100"></div>
+            <div class="campo"><label for="nc-telefone">Telefone / WhatsApp *</label><input id="nc-telefone" type="tel" maxlength="20"></div>
+          </div>
+          <div class="campo"><label for="nc-endereco">Endereço (opcional)</label><input id="nc-endereco" type="text" maxlength="255"></div>
+          <label class="marcar"><input id="nc-frequente" type="checkbox"> Cliente frequente</label>
+          <div class="acoes">
+            <button type="button" class="botao" id="botao-salvar-cliente">Salvar cliente</button>
+            <button type="button" class="botao secundario" id="botao-cancelar-cliente">Cancelar</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Como o pedido chegou?</legend>
+        <div class="opcoes">
+          <label class="opcao"><input type="radio" name="origem" value="WHATSAPP" checked><span>WhatsApp</span></label>
+          <label class="opcao"><input type="radio" name="origem" value="PRESENCIAL"><span>Pessoalmente</span></label>
+          <label class="opcao"><input type="radio" name="origem" value="SITE"><span>Site</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Produtos *</legend>
+        <div id="itens"></div>
+        <button type="button" class="botao secundario" id="botao-add-item">+ Adicionar produto</button>
+        <div class="total-linha"><span>Total</span><span class="valor" id="total">R$ 0,00</span></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Entrega ou retirada</legend>
+        <div class="grade-campos">
+          <div class="campo"><label for="data-entrega">Dia *</label><input id="data-entrega" name="dataEntregaRetirada" type="date" required></div>
+          <div class="campo"><label for="horario-entrega">Horário (opcional)</label><input id="horario-entrega" name="horarioEntregaRetirada" type="time"></div>
+        </div>
+        <div class="opcoes">
+          <label class="opcao"><input type="radio" name="tipoEntrega" value="RETIRADA" checked><span>🏠 Cliente retira</span></label>
+          <label class="opcao"><input type="radio" name="tipoEntrega" value="ENTREGA"><span>🛵 Eu entrego</span></label>
+        </div>
+        <div class="campo" id="campo-endereco" hidden>
+          <label for="endereco">Endereço de entrega *</label>
+          <input id="endereco" name="enderecoEntrega" type="text" maxlength="255">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Pagamento combinado</legend>
+        <div class="opcoes">
+          <label class="opcao"><input type="radio" name="formaPagamento" value="PIX"><span>Pix</span></label>
+          <label class="opcao"><input type="radio" name="formaPagamento" value="CARTAO"><span>Cartão</span></label>
+          <label class="opcao"><input type="radio" name="formaPagamento" value="DINHEIRO"><span>Dinheiro</span></label>
+          <label class="opcao"><input type="radio" name="formaPagamento" value="" checked><span>A combinar</span></label>
+        </div>
+        <p class="suave">Quando o cliente pagar, use “Registrar pagamento” na lista de pedidos.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Observações</legend>
+        <div class="campo">
+          <label for="observacoes" class="sr-only">Observações</label>
+          <textarea id="observacoes" name="observacoes" maxlength="500" placeholder="Ex.: sem açúcar, embalar para presente…"></textarea>
+        </div>
+        <details class="extra">
+          <summary>O pedido foi feito em outro dia?</summary>
+          <div class="grade-campos">
+            <div class="campo"><label for="data-pedido">Data do pedido</label><input id="data-pedido" name="dataPedido" type="date"></div>
+            <div class="campo"><label for="horario-pedido">Horário do pedido</label><input id="horario-pedido" name="horarioPedido" type="time"></div>
+          </div>
+        </details>
+      </fieldset>
+
+      <div class="acoes">
+        <button type="submit" class="botao grande verde" id="botao-salvar">Salvar pedido</button>
+        <a class="botao grande secundario" href="/admin/pedidos.html">Cancelar</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

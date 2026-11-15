@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fazer Pedido · Delícia Caseira da Elaine</title>
+  <meta name="description" content="Encomende pães caseiros da Elaine em Baixa Verde - MG para retirar ou receber em casa.">
+  <meta name="theme-color" content="#faf6f0">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Plus+Jakarta+Sans:wght@400..800&display=swap">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="module" src="/js/site/pedido.js"></script>
+</head>
+<body class="site">
+  <header class="topo-site">
+    <div class="faixa">
+      <a class="marca" href="/">
+        <img src="/img/logo.svg" alt="" width="44" height="44">
+        <span><strong>Delícia Caseira</strong><small>da Elaine</small></span>
+      </a>
+      <nav class="menu-site" aria-label="Menu principal">
+        <a href="/">Início</a>
+        <a href="/#cardapio">Cardápio</a>
+        <a href="/meus-pedidos.html">Meus Pedidos</a>
+        <a class="botao" href="/pedido.html" aria-current="page">Fazer Pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina pagina-form">
+    <h1>Faça seu pedido</h1>
+    <p class="suave">Preencha os passos abaixo. Os campos com * são obrigatórios.</p>
+
+    <form id="form-pedido" class="layout-pedido" novalidate>
+      <div class="passos-form">
+        <fieldset class="passo">
+          <legend><span class="num" aria-hidden="true">1</span>Seus dados</legend>
+          <div class="duas-colunas">
+            <div class="campo">
+              <label for="nome">Nome completo *</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" maxlength="100" required>
+            </div>
+            <div class="campo">
+              <label for="telefone">Telefone / WhatsApp *</label>
+              <input id="telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(31) 99999-0000" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend><span class="num" aria-hidden="true">2</span>Escolha os pães *</legend>
+          <div id="lista-produtos" class="lista-escolha" aria-live="polite">
+            <p class="carregando">Carregando o cardápio…</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend><span class="num" aria-hidden="true">3</span>Quando você quer?</legend>
+          <div class="duas-colunas">
+            <div class="campo">
+              <label for="data">Data desejada *</label>
+              <input id="data" name="dataEntregaRetirada" type="date" required>
+            </div>
+            <div class="campo">
+              <label for="horario">Horário</label>
+              <select id="horario" name="horarioEntregaRetirada"></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend><span class="num" aria-hidden="true">4</span>Como vai receber? *</legend>
+          <div class="opcoes" role="radiogroup">
+            <label class="opcao"><input type="radio" name="tipoEntrega" value="RETIRADA" checked><span>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+              Vou retirar</span></label>
+            <label class="opcao"><input type="radio" name="tipoEntrega" value="ENTREGA"><span>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3v3h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+              Quero entrega</span></label>
+          </div>
+          <div class="campo campo-endereco" id="campo-endereco" hidden>
+            <label for="endereco">Endereço de entrega *</label>
+            <input id="endereco" name="enderecoEntrega" type="text" autocomplete="street-address" maxlength="255" placeholder="Rua, número, bairro e ponto de referência">
+          </div>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend><span class="num" aria-hidden="true">5</span>Forma de pagamento *</legend>
+          <div class="opcoes" role="radiogroup">
+            <label class="opcao"><input type="radio" name="formaPagamento" value="PIX" checked><span>Pix</span></label>
+            <label class="opcao"><input type="radio" name="formaPagamento" value="CARTAO"><span>Cartão</span></label>
+            <label class="opcao"><input type="radio" name="formaPagamento" value="DINHEIRO"><span>Dinheiro</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend><span class="num" aria-hidden="true">6</span>Observações</legend>
+          <div class="campo">
+            <label for="observacoes" class="sr-only">Observações</label>
+            <textarea id="observacoes" name="observacoes" maxlength="500" placeholder="Ex.: sem lactose, escrever feliz aniversário…"></textarea>
+          </div>
+        </fieldset>
+      </div>
+
+      <aside class="cartao resumo" aria-labelledby="titulo-resumo">
+        <h2 id="titulo-resumo">Resumo do pedido</h2>
+        <ul id="resumo-itens"></ul>
+        <dl id="resumo-detalhes"></dl>
+        <div class="total-linha"><span>Total</span><span class="valor" id="resumo-total">R$ 0,00</span></div>
+        <div class="acoes">
+          <button type="submit" class="botao grande bloco" id="botao-enviar">Finalizar pedido</button>
+          <button type="reset" class="botao secundario bloco">Limpar</button>
+        </div>
+        <p class="suave nota">Seus dados são usados somente para o seu pedido.</p>
+      </aside>
+    </form>
+
+    <section id="sucesso" class="cartao sucesso" hidden aria-live="assertive">
+      <svg class="sucesso-marca" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/><path d="m14.5 24.5 6.5 6.5 13-14"/></svg>
+      <h2>Pedido recebido!</h2>
+      <p>Guarde este código para acompanhar seu pedido:</p>
+      <div class="codigo-grande" id="codigo"></div>
+      <p id="sucesso-detalhes"></p>
+      <div class="acoes centro" id="sucesso-acoes"></div>
+    </section>
+  </main>
+
+  <footer class="rodape-site rodape-curto">
+    <div class="faixa">
+      <div class="rodape-linha">
+        <p>Delícia Caseira da Elaine. Baixa Verde - MG.</p>
+        <nav aria-label="Rodapé"><a href="/meus-pedidos.html">Meus Pedidos</a></nav>
+      </div>
+      <p class="creditos">Fotos ilustrativas: Unsplash.</p>
+    </div>
+  </footer>
+</body>
+</html>
