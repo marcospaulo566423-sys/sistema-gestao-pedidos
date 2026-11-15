@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meus Pedidos · Delícia Caseira da Elaine</title>
-  <meta name="description" content="Acompanhe a situação do seu pedido de pães caseiros com o código e o telefone.">
+  <meta name="description" content="Acompanhe a situação dos seus pedidos de pães caseiros.">
   <meta name="theme-color" content="#faf6f0">
   <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,31 +26,20 @@
         <a href="/#cardapio">Cardápio</a>
         <a href="/meus-pedidos.html" aria-current="page">Meus Pedidos</a>
         <a class="botao" href="/pedido.html">Fazer Pedido</a>
+        <a class="botao grande" id="nav-auth-btn" href="/entrar.html">Entrar</a>
       </nav>
     </div>
   </header>
 
   <main class="pagina pagina-form">
     <h1>Meus Pedidos</h1>
-    <p class="suave">Digite o código que você recebeu ao fazer o pedido e o mesmo telefone que informou.</p>
+    <p class="suave" id="subtitulo-pedidos">Acompanhe aqui o andamento das suas encomendas.</p>
 
     <div class="layout-consulta">
-      <form id="form-consulta" class="cartao consulta" novalidate>
-        <div class="campo">
-          <label for="codigo"><span class="num" aria-hidden="true">1</span>Código do pedido</label>
-          <input id="codigo" name="codigo" type="text" maxlength="20" autocomplete="off" autocapitalize="characters" placeholder="Ex.: K7M2Q9XA" required>
-        </div>
-        <div class="campo">
-          <label for="telefone"><span class="num" aria-hidden="true">2</span>Telefone / WhatsApp</label>
-          <input id="telefone" name="telefone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="(31) 99999-0000" required>
-        </div>
-        <button type="submit" class="botao grande bloco" id="botao-consultar">Ver meu pedido</button>
-      </form>
-
-      <div class="coluna-resultado">
+      <div class="coluna-resultado" style="grid-column: 1 / -1;">
         <section id="resultado" class="secao" aria-live="polite"></section>
 
-        <aside class="guia-status" aria-labelledby="titulo-guia">
+        <aside class="guia-status" aria-labelledby="titulo-guia" style="margin-top: 2rem;">
           <h2 id="titulo-guia">O que cada situação quer dizer</h2>
           <ul>
             <li><span class="etiqueta PENDENTE">Pendente</span><p>A Elaine recebeu e vai preparar para a data combinada.</p></li>
@@ -70,5 +59,6 @@
       </div>
     </div>
   </footer>
+  <script src="/js/auth-nav.js"></script>
 </body>
 </html>

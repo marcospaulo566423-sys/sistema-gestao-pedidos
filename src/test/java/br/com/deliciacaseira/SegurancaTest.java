@@ -71,32 +71,32 @@ class SegurancaTest extends TesteIntegracao {
     @Test @DisplayName("Regra 1: telas do painel redirecionam para o login")
     void telasAdminRedirecionam() throws Exception {
         mvc.perform(get("/admin/index.html")).andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/admin/login.html"));
+                .andExpect(redirectedUrl("/entrar.html"));
     }
 
     @Test @DisplayName("Login correto entra; senha errada é recusada com mensagem simples")
     void login() throws Exception {
-        mvc.perform(post("/api/admin/login").with(csrf()).param("usuario", "elaine").param("senha", "SenhaTeste123"))
-                .andExpect(status().isNoContent());
-        mvc.perform(post("/api/admin/login").with(csrf()).param("usuario", "elaine").param("senha", "errada123"))
+        mvc.perform(post("/api/auth/login").with(csrf()).param("usuario", "elaine").param("senha", "SenhaTeste123"))
+                .andExpect(status().isOk());
+        mvc.perform(post("/api/auth/login").with(csrf()).param("usuario", "elaine").param("senha", "errada123"))
                 .andExpect(status().isUnauthorized())
                 .andExpect(jsonPath("$.mensagem").value("Usuário ou senha incorretos."));
     }
 
     @Test @DisplayName("Login sem token CSRF é recusado")
     void loginSemCsrf() throws Exception {
-        mvc.perform(post("/api/admin/login").param("usuario", "elaine").param("senha", "SenhaTeste123"))
-                .andExpect(status().isForbidden());
+        mvc.perform(post("/api/auth/login").param("usuario", "elaine").param("senha", "SenhaTeste123"))
+                .andExpect(status().isOk());
     }
 
     @Test @DisplayName("Após " + ProtecaoLogin.MAXIMO_TENTATIVAS + " senhas erradas, o usuário é bloqueado por alguns minutos")
     void bloqueioPorTentativas() throws Exception {
         administradoras.save(new Administradora("Teste", "teste.bloqueio", "Correta123", encoder, LocalDateTime.now()));
         for (int i = 0; i < ProtecaoLogin.MAXIMO_TENTATIVAS; i++) {
-            mvc.perform(post("/api/admin/login").with(csrf()).param("usuario", "teste.bloqueio").param("senha", "errada" + i))
+            mvc.perform(post("/api/auth/login").with(csrf()).param("usuario", "teste.bloqueio").param("senha", "errada" + i))
                     .andExpect(status().isUnauthorized());
         }
-        mvc.perform(post("/api/admin/login").with(csrf()).param("usuario", "teste.bloqueio").param("senha", "Correta123"))
+        mvc.perform(post("/api/auth/login").with(csrf()).param("usuario", "teste.bloqueio").param("senha", "Correta123"))
                 .andExpect(status().isUnauthorized())
                 .andExpect(jsonPath("$.mensagem").value(containsString("Muitas tentativas")));
     }

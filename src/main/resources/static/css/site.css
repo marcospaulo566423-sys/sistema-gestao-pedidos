@@ -290,3 +290,80 @@
   .menu-site a[href$="#cardapio"] { display: none; }
   .passo .opcao span { white-space: normal; }
 }
+
+/* === Tela de Entrada / Conta do Cliente === */
+.menu-site .botao.grande#nav-auth-btn {
+  padding: 0.78rem 1.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: var(--marrom, #2b1a0e);
+  color: #fffdf9;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(43, 26, 14, 0.2);
+}
+.menu-site .botao.grande#nav-auth-btn:hover {
+  filter: brightness(1.12);
+}
+.auth-caixa {
+  max-width: 480px;
+  margin: 2.5rem auto 4rem;
+  background: var(--papel, #fffdf9);
+  border: 1px solid var(--linha, #e6dccd);
+  border-radius: 20px;
+  padding: 2.2rem;
+  box-shadow: 0 12px 32px rgba(45, 29, 14, 0.06);
+}
+.auth-abas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  background: var(--creme, #f3ece0);
+  padding: 0.35rem;
+  border-radius: 12px;
+  margin: 1.4rem 0;
+}
+.auth-aba {
+  border: none;
+  background: transparent;
+  padding: 0.7rem;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--texto-suave, #6b5541);
+  cursor: pointer;
+}
+.auth-aba.ativa {
+  background: #ffffff;
+  color: var(--marrom, #2b1a0e);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+.auth-painel {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+.auth-painel.ativa {
+  display: flex;
+}
+.auth-aviso {
+  font-size: 0.88rem;
+  color: #6b4c30;
+  background: #fdf3e7;
+  border-left: 3px solid var(--terracota, #b85d19);
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  line-height: 1.45;
+}
+.auth-erro {
+  display: none;
+  background: #fdecea;
+  color: #a62619;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.auth-erro.visivel {
+  display: block;
+}

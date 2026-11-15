@@ -24,7 +24,10 @@ CREATE TABLE cliente (
     endereco           VARCHAR(255),
     cliente_frequente  BOOLEAN      NOT NULL DEFAULT FALSE,
     criado_em          TIMESTAMP    NOT NULL,
-    CONSTRAINT uk_cliente_telefone UNIQUE (telefone)
+    usuario            VARCHAR(50),
+    senha_hash         VARCHAR(100),
+    CONSTRAINT uk_cliente_telefone UNIQUE (telefone),
+    CONSTRAINT uk_cliente_usuario UNIQUE (usuario)
 );
 
 -- Produto: cada sabor/variedade é um produto (RF22, RF23).

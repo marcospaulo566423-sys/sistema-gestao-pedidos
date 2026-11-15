@@ -163,17 +163,19 @@ function mostrarSucesso(pedido) {
   document.querySelector('h1').textContent = 'Obrigada pelo pedido!';
   document.querySelector('.pagina > p.suave').hidden = true;
   const sucesso = document.getElementById('sucesso');
-  document.getElementById('codigo').textContent = pedido.codigo;
   document.getElementById('sucesso-detalhes').textContent =
     `${ROTULOS.tipo[pedido.tipoEntrega]} em ${dataPorExtenso(pedido.dataEntregaRetirada)}`
     + `${pedido.horarioEntregaRetirada ? ` às ${pedido.horarioEntregaRetirada.slice(0, 5)}` : ''}`
     + ` · Total ${moeda(pedido.total)} (${ROTULOS.forma[pedido.formaPagamento]}).`;
   document.getElementById('sucesso-acoes').replaceChildren(
-    el('a', { class: 'botao grande', href: `/meus-pedidos.html?codigo=${encodeURIComponent(pedido.codigo)}`, text: 'Acompanhar meu pedido' }),
+    el('a', { class: 'botao grande', href: '/meus-pedidos.html', text: 'Acompanhar meus pedidos' }),
     el('a', { class: 'botao grande secundario', href: '/pedido.html', text: 'Fazer outro pedido' }));
   sucesso.hidden = false;
   sucesso.scrollIntoView({ behavior: 'smooth' });
 }
+
+atualizarEndereco();
+carregarProdutos();
 
 atualizarEndereco();
 carregarProdutos();

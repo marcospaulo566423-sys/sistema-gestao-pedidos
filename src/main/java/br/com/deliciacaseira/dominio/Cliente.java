@@ -9,10 +9,6 @@ import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
 
-/**
- * Cliente (UML: herda de Pessoa). O endereço é OPCIONAL (corrige R3 / Regra 4);
- * o endereço de cada entrega fica no próprio Pedido.
- */
 @Entity
 @Table(name = "cliente")
 public class Cliente extends Pessoa {
@@ -29,6 +25,12 @@ public class Cliente extends Pessoa {
 
     @Column(name = "cliente_frequente", nullable = false)
     private boolean clienteFrequente;
+
+    @Column(unique = true, length = 50)
+    private String usuario;
+
+    @Column(name = "senha_hash", length = 100)
+    private String senhaHash;
 
     @Column(name = "criado_em", nullable = false)
     private LocalDateTime criadoEm;
@@ -50,5 +52,19 @@ public class Cliente extends Pessoa {
     public void setEndereco(String endereco) { this.endereco = Textos.opcional(endereco, "Endereço", 255); }
     public boolean isClienteFrequente() { return clienteFrequente; }
     public void setClienteFrequente(boolean clienteFrequente) { this.clienteFrequente = clienteFrequente; }
+    public String getUsuario() { return usuario; }
+    public void setUsuario(String usuario) {
+        if (usuario == null || usuario.isBlank()) {
+            this.usuario = null;
+            return;
+        }
+        String limpo = usuario.strip().toLowerCase();
+        if (!limpo.matches("^[a-z0-9._-]{3,50}$")) {
+            throw new RegraNegocioException("O usuário deve ter entre 3 e 50 caracteres (letras, números, ponto ou traço).");
+        }
+        this.usuario = limpo;
+    }
+    public String getSenhaHash() { return senhaHash; }
+    public void setSenhaHash(String senhaHash) { this.senhaHash = senhaHash; }
     public LocalDateTime getCriadoEm() { return criadoEm; }
 }

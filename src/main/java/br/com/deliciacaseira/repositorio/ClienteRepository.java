@@ -12,9 +12,12 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     Optional<Cliente> findByTelefone(String telefone);
 
+    Optional<Cliente> findByUsuarioIgnoreCase(String usuario);
+
+    boolean existsByUsuarioIgnoreCase(String usuario);
+
     boolean existsByTelefoneAndIdNot(String telefone, Long id);
 
-    /** RF16: frequentes primeiro, depois por nome. Busca por parte do nome ou do telefone. */
     @Query("""
             select c from Cliente c
             where lower(c.nome) like :termo or c.telefone like :termo

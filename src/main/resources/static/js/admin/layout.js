@@ -36,7 +36,7 @@ export async function iniciarLayout() {
   const saudacao = el('span', { text: '' });
   const sair = el('button', { type: 'button', class: 'botao pequeno', text: 'Sair' });
   sair.addEventListener('click', async () => {
-    try { await api('/api/admin/logout', { metodo: 'POST' }); } finally { location.href = '/admin/login.html'; }
+    try { await api('/api/auth/logout', { metodo: 'POST' }); } finally { location.href = '/entrar.html'; }
   });
 
   document.getElementById('topo').replaceChildren(

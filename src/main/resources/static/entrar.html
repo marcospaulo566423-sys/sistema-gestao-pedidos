@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar · Delícia Caseira da Elaine</title>
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Plus+Jakarta+Sans:wght@400..800&display=swap">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="module" src="/js/site/entrar.js"></script>
+</head>
+<body class="site">
+  <header class="topo-site">
+    <div class="faixa">
+      <a class="marca" href="/">
+        <img src="/img/logo.svg" alt="" width="44" height="44">
+        <span><strong>Delícia Caseira</strong><small>da Elaine</small></span>
+      </a>
+      <nav class="menu-site" aria-label="Menu principal">
+        <a href="/">Início</a>
+        <a href="/#cardapio">Cardápio</a>
+        <a href="/meus-pedidos.html">Meus Pedidos</a>
+        <a class="botao" href="/pedido.html">Fazer Pedido</a>
+        <a class="botao grande" id="nav-auth-btn" href="/entrar.html" aria-current="page">Entrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina">
+    <section class="auth-caixa" aria-labelledby="titulo-entrar">
+      <h1 id="titulo-entrar">Acesse sua conta</h1>
+      <p>Sem senha! Entre ou cadastre-se apenas com seu nome e telefone.</p>
+
+      <div class="auth-abas" role="tablist">
+        <button type="button" class="auth-aba ativa" data-aba="cliente">Sou Cliente</button>
+        <button type="button" class="auth-aba" data-aba="admin">Sou Administradora</button>
+      </div>
+
+      <div id="msg-erro" class="auth-erro" role="alert"></div>
+
+      <form id="form-cliente" class="auth-painel ativa">
+        <label class="campo">
+          <span>Seu nome</span>
+          <input type="text" id="cli-nome" placeholder="Ex: Maria Oliveira" required autocomplete="name">
+        </label>
+        <label class="campo">
+          <span>Seu telefone (WhatsApp)</span>
+          <input type="tel" id="cli-tel" placeholder="(31) 99999-9999" required autocomplete="tel">
+        </label>
+        <div class="auth-aviso">
+          <strong>Sem senha:</strong> Seu número de telefone identifica sua conta e salva automaticamente todos os seus pedidos em <strong>Meus Pedidos</strong>.
+        </div>
+        <button type="submit" class="botao grande">Entrar na minha conta</button>
+      </form>
+
+      <form id="form-admin" class="auth-painel">
+        <label class="campo">
+          <span>Usuário da confeitaria</span>
+          <input type="text" id="adm-usuario" placeholder="elaine" required autocomplete="username">
+        </label>
+        <label class="campo">
+          <span>Senha</span>
+          <input type="password" id="adm-senha" placeholder="••••••••" required autocomplete="current-password">
+        </label>
+        <button type="submit" class="botao grande">Entrar no Painel Admin</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/js/auth-nav.js"></script>
+</body>
+</html>

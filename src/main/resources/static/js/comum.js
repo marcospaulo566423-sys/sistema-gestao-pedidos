@@ -208,3 +208,25 @@ export function lerNumero(texto) {
   const n = Number(normalizado);
   return Number.isFinite(n) ? n : NaN;
 }
+
+// Atualiza links "Entrar" no site quando o cliente ou administradora já estiver logado
+(async () => {
+  const links = document.querySelectorAll('[data-link-entrar]');
+  if (!links.length) return;
+  try {
+    const s = await api('/api/auth/sessao');
+    if (!s || !s.autenticado) return;
+    if (s.perfil === 'ADMIN') {
+      links.forEach((a) => { a.href = '/admin/index.html'; a.textContent = 'Painel Admin'; });
+    } else if (s.perfil === 'CLIENTE') {
+      const primeiroNome = (s.nome || 'Minha conta').split(' ')[0];
+      links.forEach((a) => { a.href = '/pedido.html'; a.textContent = `Olá, ${primeiroNome}`; });
+      const campoNome = document.getElementById('nome');
+      const campoTel = document.getElementById('telefone');
+      const campoEnd = document.getElementById('endereco');
+      if (campoNome && !campoNome.value) campoNome.value = s.nome || '';
+      if (campoTel && !campoTel.value) campoTel.value = s.telefone || '';
+      if (campoEnd && !campoEnd.value && s.endereco) campoEnd.value = s.endereco;
+    }
+  } catch { /* visitante não autenticado */ }
+})();
